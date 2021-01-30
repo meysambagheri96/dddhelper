@@ -18,7 +18,7 @@ namespace Domain
         {
             Guard.NotNull(@event, nameof(@event));
 
-            this._changes.Remove(@event);
+            _changes.Remove(@event);
         }
 
         public void MarkChangesAsCommitted()
@@ -43,7 +43,6 @@ namespace Domain
 
         private void ApplyChange(DomainEvent @event, bool isNew)
         {
-            this.ThrowIfDeleted();
             this.AsDynamic().Apply(@event);
 
             if (isNew)
@@ -52,14 +51,6 @@ namespace Domain
             }
 
             Version++;
-        }
-
-        protected void ThrowIfDeleted()
-        {
-            if (this.Deleted)
-            {
-                throw new InvalidOperationException("No operation is allowed on a deleted object");
-            }
         }
     }
 }
