@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Domain
 {
-    public abstract class AggregateRoot : Entity<Guid>
+    public abstract class AggregateRoot<T> : Entity<T>
     {
         private readonly List<Event> _changes = new List<Event>();
 
@@ -12,7 +12,7 @@ namespace Domain
 
         public IEnumerable<Event> UncommittedChanges => _changes;
 
-        public bool IsNew => this.Version == default;
+        public bool IsNew => Version == default;
 
         public void MarkChangeAsCommitted(Event @event)
         {
