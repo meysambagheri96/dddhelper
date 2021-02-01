@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace Domain
 {
+    public class AggregateRoot : AggregateRoot<Guid>
+    {
+    }
+
     public abstract class AggregateRoot<T> : Entity<T>
     {
         private readonly List<Event> _changes = new List<Event>();
