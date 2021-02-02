@@ -6,7 +6,8 @@ namespace Domain
     {
         public DomainValidationException(string message) : base(message)
         {
-
         }
+
+        public virtual string PropertyName { get; set; }
     }
 }
