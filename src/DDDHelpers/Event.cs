@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public abstract class Event
+    public class Event
     {
         public DateTime Timestamp { get; set; }
         public virtual string EventName => GetType().FullName;
