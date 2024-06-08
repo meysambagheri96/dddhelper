@@ -6,7 +6,7 @@ namespace Domain
     {
         private string _eventName;
 
-        public DateTime Timestamp { get; set; }
+        public DateTime Timestamp { get; set; } = DateTime.Now;
         public virtual string EventName
         {
             get
